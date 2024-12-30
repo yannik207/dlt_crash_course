@@ -1,11 +1,18 @@
 # secrets
 .envrc
 
-# caches
-__pycache__
+# ignore basic python artifacts
+.env
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
 
 # python version from pyenv
 .python-version
 
 # virutal environments
 .venv
+
+# duckdb files
+*.duckdb
+*.wal
