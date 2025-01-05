@@ -13,7 +13,7 @@ def github_stargazers():
     )
 
     for page in client.paginate("repos/dlt-hub/dlt/stargazers"):
-        print(f"next page: {page}\n")
+        # print(f"next page: {page}\n")
         yield page
 
 
@@ -27,7 +27,13 @@ print(load_info)
 
 
 # explore loaded data
-pipeline.dataset(dataset_type="default").github_stargazers.df()
+# Query data from 'pokemon' using the SQL client
+with pipeline.sql_client() as client:
+    with client.execute_query("SELECT * FROM github_stargazers WHERE id='17202864'") as cursor:
+        data = cursor.df()
+
+# Display the data
+print(data)
 
 
 """

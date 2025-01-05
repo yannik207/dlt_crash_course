@@ -26,6 +26,7 @@ def github_comments(access_token=github_token):
             "status": "open"
         }
         for page in client.paginate("repos/dlt-hub/dlt/pulls/comments", params=params):
+            print(f"{page}\n")
             yield page
     return github_comments_dlt
 
@@ -38,3 +39,5 @@ pipeline = dlt.pipeline(
 
 load_info = pipeline.run(github_comments())
 print(load_info)
+
+pipeline.dataset(dataset_type="default").github_comments.df()

@@ -62,4 +62,4 @@ pipeline = dlt.pipeline(
 load_info = pipeline.run(github_source())
 print(load_info)
 
-#print(pipeline.dataset(dataset_type="default").stargazers.df())
+#print(pipeline.dataset(dataset_type="default").github_repos.df())

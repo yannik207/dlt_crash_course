@@ -11,3 +11,6 @@ filesystem_pipe = filesystem_resource | read_parquet()
 pipeline = dlt.pipeline(pipeline_name="my_pipeline", destination="duckdb")
 load_info = pipeline.run(filesystem_pipe.with_name("userdata"))
 print(load_info)
+
+# explore loaded data
+print(pipeline.dataset(dataset_type="default").userdata.df())
