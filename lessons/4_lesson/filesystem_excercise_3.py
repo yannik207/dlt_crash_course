@@ -2,7 +2,7 @@ import dlt
 from dlt.sources.filesystem import filesystem, read_parquet
 
 filesystem_resource = filesystem(
-  bucket_url="/content/local_data",
+  bucket_url="./local_data",
   file_glob="**/*.parquet"
 )
 filesystem_pipe = filesystem_resource | read_parquet()

@@ -40,4 +40,4 @@ pipeline = dlt.pipeline(
 load_info = pipeline.run(github_comments())
 print(load_info)
 
-pipeline.dataset(dataset_type="default").github_comments.df()
+pipeline.dataset(dataset_type="default").github_dlt_comments.df()

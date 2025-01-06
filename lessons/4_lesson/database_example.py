@@ -1,5 +1,5 @@
-from dlt.sources.sql_database import sql_database
 import dlt
+from dlt.sources.sql_database import sql_database
 
 source = sql_database(
     "mysql+pymysql://rfamro@mysql-rfam-public.ebi.ac.uk:4497/Rfam",
@@ -15,8 +15,6 @@ pipeline = dlt.pipeline(
 
 load_info = pipeline.run(source)
 print(load_info)
-
-print(pipeline.dataset(dataset_type="default").family.df())
 
 """
 Question
